@@ -15,6 +15,9 @@ redis_cli = redis.Redis(host='redis-18057.c14.us-east-1-3.ec2.redns.redis-cloud.
 # cache = Cache(app, config={'CACHE_TYPE': 'redis', 'CACHE_REDIS_HOST': redis_client})
 # cache.init_app(app)
 
+class Item(BaseModel):
+    name: str
+    
 @app.get("/")
 def read_root():
     return {"Hello": "World1"}
