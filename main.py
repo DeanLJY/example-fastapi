@@ -1,7 +1,7 @@
 from typing import Union
-
+import redis
 from fastapi import FastAPI
-
+from flask_caching import Cache
 app = FastAPI()
 redis_client = redis.Redis(host='redis-18057.c14.us-east-1-3.ec2.redns.redis-cloud.com', port=18057, password='utgvvXEMTVMuMdIhHcWVZmKS31UeJwqN')
 # Initialize Flask-Caching with Redis
