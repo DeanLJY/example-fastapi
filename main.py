@@ -1,12 +1,12 @@
 from typing import Union
 import redis
 from fastapi import FastAPI
-from flask_caching import Cache
+# from flask_caching import Cache
 app = FastAPI()
-redis_client = redis.Redis(host='redis-18057.c14.us-east-1-3.ec2.redns.redis-cloud.com', port=18057, password='utgvvXEMTVMuMdIhHcWVZmKS31UeJwqN')
+redis_cli = redis.Redis(host='redis-18057.c14.us-east-1-3.ec2.redns.redis-cloud.com', port=18057, password='utgvvXEMTVMuMdIhHcWVZmKS31UeJwqN')
 # Initialize Flask-Caching with Redis
-cache = Cache(app, config={'CACHE_TYPE': 'redis', 'CACHE_REDIS_HOST': redis_client})
-cache.init_app(app)
+# cache = Cache(app, config={'CACHE_TYPE': 'redis', 'CACHE_REDIS_HOST': redis_client})
+# cache.init_app(app)
 
 @app.get("/")
 def read_root():
