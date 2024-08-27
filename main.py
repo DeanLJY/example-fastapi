@@ -26,14 +26,14 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
-
+#async def create_item(item: Item):
 # 新增 item 至 Redis
 @app.post("/items/", status_code=status.HTTP_201_CREATED)
-async def create_item(item: Item):
+async def create_item(item):
     # Add item to the Redis list
     # redis_cli.rpush("items", item.name)
     print(item.name)
-    redis_cli.set('md',item.name)
+    redis_cli.set('md',item)
     return {"message": "Item added successfully"}
 
 # 取得 Redis 內的所有 items
