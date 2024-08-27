@@ -32,6 +32,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 async def create_item(item: Item):
     # Add item to the Redis list
     # redis_cli.rpush("items", item.name)
+    print(item.name)
     redis_cli.set('md',item.name)
     return {"message": "Item added successfully"}
 
