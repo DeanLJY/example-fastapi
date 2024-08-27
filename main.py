@@ -31,14 +31,16 @@ def read_item(item_id: int, q: Union[str, None] = None):
 @app.post("/items/", status_code=status.HTTP_201_CREATED)
 async def create_item(item: Item):
     # Add item to the Redis list
-    redis_cli.rpush("items", item.name)
+    # redis_cli.rpush("items", item.name)
+    redis_cli.set('md',item.name)
     return {"message": "Item added successfully"}
 
 # 取得 Redis 內的所有 items
 @app.get("/items/", status_code=status.HTTP_200_OK)
 async def get_items():
     # Retrieve items from the Redis list
-    items = redis_cli.lrange("items", 0, -1)
+    # items = redis_cli.lrange("items", 0, -1)
+    redis_cli.get('md',item.name)
     return {"items": items}
 
 # 刪除 Redis 內的特定 item
