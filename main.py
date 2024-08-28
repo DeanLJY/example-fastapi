@@ -41,8 +41,8 @@ async def create_item(item: Item):
 async def get_items():
     # Retrieve items from the Redis list
     # items = redis_cli.lrange("items", 0, -1)
-    redis_cli.get('md',item.name)
-    return {"items": items}
+    md = redis_cli.get('md')
+    return md
 
 # 刪除 Redis 內的特定 item
 @app.delete("/items/{item_name}", status_code=status.HTTP_200_OK)
